@@ -1,5 +1,7 @@
 /*
-
+* @author : Fabian Emmanuel
+*
+*
 You are given an array of up to four non-negative integers, each less than 256.
 Your task is to pack these integers into one number M so that the first element of the array occupies the first (or least significant) 8 bits of M; the second element occupies next 8 bits, and so on.
 Return the obtained integer M as unsigned integer.
@@ -41,11 +43,14 @@ public class Challenge3 {
     public static Integer arrayPacking( List<Integer> integers ){
         String[] myArray = new String[3];
         for (int i = 0; i < 3; i++){
+           
             //gets the integer list index and converts it to a string binary and stores it in myArray index
             myArray[i] = Integer.toBinaryString(integers.get(i));
-            // Padding the left side with zeros
+           
+           // Padding the left side with zeros
             while (myArray[i].length() != 8) myArray[i] = "0" + myArray[i];
         }
+       
         //add all the binary in myArray index together
         String result = myArray[2] + myArray[1] + myArray[0];
         int num = Integer.parseInt(result, 2);
